@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Coverage Prediction</title>
+      <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+      <script>
+      function show(){
+          document.getElementById('Soil').style.display = "block";
+      }
+      </script>
+    </head>
+    <body>
+      <h1>GPS Data Input</h1>
+      <form class="form" method="post">
+        Elevation:<br>
+        <input type="text" name="Elevation">
+        <br>
+        Aspect:<br>
+        <input type="text" name="Aspect">
+        <br>
+        Slope:<br>
+        <input type="text" name="Slope">
+        <br>
+        Horizontal Distance To Hydrology:<br>
+        <input type="text" name="Horizontal_Distance_To_Hydrology">
+        <br>
+        Vertical Distance To Hydrology:<br>
+        <input type="text" name="Vertical_Distance_To_Hydrology">
+        <br>
+        Horizontal Distance To Roadways:<br>
+        <input type="text" name="Horizontal_Distance_To_Roadways">
+        <br>
+        Hillshade 9am:<br>
+        <input type="text" name="Hillshade_9am">
+        <br>
+        Hillshade Noon:<br>
+        <input type="text" name="Hillshade_Noon">
+        <br>
+        Hillshade 3pm:<br>
+        <input type="text" name="Hillshade_3pm">
+        <br>
+        Horizontal Distance To Fire Points:<br>
+        <input type="text" name="Horizontal_Distance_To_Fire_Points">
+        <br>
+        Wilderness Area:<br>
+        <input type="text" name="Wilderness_Area">
+        <br>
+        <div id='Soil' style="display:none">
+        Soil Type:<br>
+        <input type="text" name="Soil Type">
+        </div>
+        <a onclick="show()">I have soil type data</a>
+        <input type="submit" value="Predict">
+        <br><br>
+        {% if dict['flag']==1 %}
+        <div id='Soil' style="display:block">SoilType: {{dict['SoilType']}}</div>
+        <br>
+        <div id='Cover' style="display:block">CoverType: {{dict['CoverType']}}</div>
+        {% elif dict['flag']==0 %}
+        <br>
+        {% elif dict['flag']==2 %}
+        <div id='Cover' style="display:block">CoverType: {{dict['CoverType']}}</div>
+        {% endif %}
+      </form>
+    </body>
+</html>
