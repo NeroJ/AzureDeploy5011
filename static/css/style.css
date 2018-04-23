@@ -5,9 +5,8 @@ a{
 }
 
 body {
-    background: url(../images/timg.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100% 110%;
+    background: url(../images/IMG_2774.jpg);
+    background-size: cover;
     color: white;
 }
 
